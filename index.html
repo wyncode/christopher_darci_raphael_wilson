@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hangry</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <link rel="stylesheet" href="index.css"/>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    
+  </head>
+  <body class="panda">
+    <div id="root"></div>
+    <script type="text/babel">
+        class Hunger extends React.Component {
+            
+
+        render(){ 
+             return (
+                 <React.Fragment>
+                    <div 
+                    className="panda"
+                    onClick={() => console.log("I'm fucking hunrgy")}
+                    id="title">
+                      Hangry!
+                    </div>
+                 </React.Fragment>
+                )
+             }
+         }
+      ReactDOM.render(<Hunger />, document.getElementById('root'));
+
+    </script>
+  </body>
+</html>

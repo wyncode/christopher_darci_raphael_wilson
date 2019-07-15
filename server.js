@@ -8,27 +8,14 @@ const axios = require("axios")
 const yelpKey = process.env.YELP_API_KEY;
 const app = express()
 
-// JUST FOR DEMO PURPOSES, PUT YOUR ACTUAL API CODE HERE
 app.get('/api/:location', (request, response) => {
   const { location } = request.params;
-
-  console.log('key: ', process.env.YELP_API_KEY);
-
   axios.get(`https://api.yelp.com/v3/businesses/search?location=${location}`, {
-    headers: {
-      "Authorization" : `Bearer ${yelpKey}`,
-    }
-  })
-  .then(resp => response.send(resp.data))
-  .catch(error=> response.send({ errors: true, error }))
-  
-  // response.json({
-  //   return: request.type
-  // })
+      headers: { "Authorization" : `Bearer ${yelpKey}` }
+    })
+    .then(resp => response.send(resp.data))
+    .catch(error=> response.send({ errors: true, error }))
 })
-
-
-// END DEMO
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files

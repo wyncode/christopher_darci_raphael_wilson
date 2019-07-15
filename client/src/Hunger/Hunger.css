@@ -1,0 +1,82 @@
+.panda {
+  background-image: URL(PandaMan.gif);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+.flour {
+  background-image: URL(FlourPower.gif);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+.keyboard {
+  background-image: URL(KeyboardPanda.gif);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+.grocery {
+  background-image: URL(GroceryPanda.gif);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#title {
+  display: flex;
+  padding-top: 15rem;
+  font-family: 'Oleo Script', cursive;
+  font-size: 10rem;
+  background-image: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: rgb(243, 243, 22);
+  border: none;
+  justify-content: center;
+  color: white;  /* Fallback: assume this color ON TOP of image */
+  background: url(WildFire.gif) no-repeat;
+  background-size: cover;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: 1s;
+}
+
+#title.unselectable {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  /*
+    Introduced in IE 10.
+    See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+  */
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#title:hover{
+   transform: scale(1.2);
+   transition: 1s;
+   text-shadow: 30px 30px 60px rgb(165, 21, 21);
+}

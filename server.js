@@ -8,9 +8,9 @@ const axios = require("axios")
 const yelpKey = process.env.YELP_API_KEY;
 const app = express()
 
-app.get('/api/:location', (request, response) => {
-  const { location } = request.params;
-  axios.get(`https://api.yelp.com/v3/businesses/search?location=${location}`, {
+app.get('/api/:latitude/:longitude', (request, response) => {
+  const { latitude, longitude } = request.params;
+  axios.get(`https://api.yelp.com/v3/businesses/search?latitude=${latitude}&longitude=${longitude}`, {
       headers: { "Authorization" : `Bearer ${yelpKey}` }
     })
     .then(resp => response.send(resp.data))

@@ -43,9 +43,15 @@
   overflow: hidden;
 }
 
-#title {
+#shrink {
   display: flex;
-  padding-top: 15rem;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#title {
+  outline: none;
   font-family: 'Oleo Script', cursive;
   font-size: 10rem;
   background-image: none;
@@ -53,7 +59,6 @@
   cursor: pointer;
   color: rgb(243, 243, 22);
   border: none;
-  justify-content: center;
   color: white;  /* Fallback: assume this color ON TOP of image */
   background: url(WildFire.gif) no-repeat;
   background-size: cover;

@@ -5,7 +5,7 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require("express")
 const path = require("path")
 const axios = require("axios")
-const yelpKey = process.env.YELP_API_KEY;
+const yelpKey = process.env.YELP_API_KEY
 const app = express()
 
 app.get('/api/:latitude/:longitude', (request, response) => {
@@ -29,5 +29,5 @@ if (process.env.NODE_ENV === 'production') {
 const port = process.env.PORT || 8080
 app.listen(
   port,
-  () => { console.log(`API listening on port ${port}...`) }
+  () => { console.log(`API listening on port ${port}...${yelpKey}`) }
 )

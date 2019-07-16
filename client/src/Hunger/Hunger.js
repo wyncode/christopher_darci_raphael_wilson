@@ -5,7 +5,8 @@ class Hunger extends React.Component {
   state = {
     background: 'panda',
     latitude: null,
-    longitude: null
+    longitude: null,
+    restaurants: null
   }
 
   componentDidMount(){
@@ -26,9 +27,13 @@ class Hunger extends React.Component {
   }
 
   fetchRestaurants = () => {
+    console.log(this.state)
     fetch(`/api/${this.state.latitude}/${this.state.longitude}`)
       .then(response => response.json())
-      .then(data => this.setState({ restaurants: data.businesses }))
+      .then(data => {
+        console.log(data)
+        this.setState({ restaurants: data.businesses })
+      });
   }
 
   changeBackground = () => {
@@ -39,14 +44,14 @@ class Hunger extends React.Component {
   }
 
   render(){
-    console.log(this.state)
+    
     return (
       <React.Fragment>
         <div
         className={this.state.background}
         onClick={this.fetchRestaurants}>
-          <div>
-            <span id='title' unselectable="on" className='unselectable'>Hangry!</span>
+          <div id='shrink'>
+            <button id='title' unselectable="on" className='unselectable' >Hangry!</button>
           </div>
         </div>
       </React.Fragment>

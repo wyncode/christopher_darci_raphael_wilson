@@ -41,8 +41,6 @@
 
 .Business-address {
   display: grid;
-  /* flex-direction: column;
-  justify-content: space-between; */
   place-items: center left;
   text-align: left;
   margin: 0;
@@ -51,8 +49,6 @@
 
 .Business-reviews {
   display: grid;
-  /* flex-direction: column; */
-  /* justify-content: space-between; */
   text-align: left;
   place-items: center right;
 }

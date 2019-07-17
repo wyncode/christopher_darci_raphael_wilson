@@ -4,6 +4,10 @@ html {
   font-size: 18px;
 }
 
+a {
+  text-decoration: none;
+}
+
 @media only screen and (max-width: 560px) {
   html {
     font-size: 15px;

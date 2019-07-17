@@ -27,7 +27,7 @@ class Results extends React.Component {
           .then(data => {
             const businesses =  data.businesses
                                   .filter(item => item.rating >= this.state.minRating)
-                                  .sort((a, b) => a.distance - b.distance),
+                                  .sort((a, b) => a.distance - b.distance)
             this.setState({businesses, latitude, longitude})
           })
           .catch(err => console.log(err.message))

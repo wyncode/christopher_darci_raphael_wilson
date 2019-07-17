@@ -10,8 +10,8 @@ class Results extends React.Component {
   state = {
     latitude:     null,
     longitude:    null,
-    businesses:  [],
-    ratings:       [],
+    businesses:   [],
+    ratings:      [],
     minRating:    3.5,
     maxRating:    5,
     hours:        [],
@@ -25,14 +25,10 @@ class Results extends React.Component {
         fetch(`/api/${latitude}/${longitude}`)
           .then(response => response.json())
           .then(data => {
-            console.log(latitude, longitude)
-            console.dir(data.businesses)
-            this.setState({
-              businesses: data.businesses
-              .filter(item => item.rating >= this.state.minRating)
-              .sort((a, b) => a.distance - b.distance),
-              latitude, 
-              longitude})
+            const businesses =  data.businesses
+                                  .filter(item => item.rating >= this.state.minRating)
+                                  .sort((a, b) => a.distance - b.distance),
+            this.setState({businesses, latitude, longitude})
           })
           .catch(err => console.log(err.message))
       },

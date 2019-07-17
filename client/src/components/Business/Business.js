@@ -25,7 +25,7 @@ class Business extends React.Component {
             <h3>{business.categories[0].title}</h3>
             <h3 className="rating">{business.rating} stars</h3>
             <p>{business.review_count} reviews</p>
-            <p>price: {business.price}</p>
+            <p>price: {business.price || "N/A"} </p>
           </div>
         </div>
       </div>

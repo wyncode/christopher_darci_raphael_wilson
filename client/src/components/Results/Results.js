@@ -8,14 +8,16 @@ import { Link } from 'react-router-dom'
 
 class Results extends React.Component {
   state = {
-    latitude:     null,
-    longitude:    null,
-    businesses:   [],
-    ratings:      [],
-    minRating:    3.5,
-    maxRating:    5,
-    hours:        [],
-    errorMessage: '',
+    latitude:         null,
+    longitude:        null,
+    businesses:       [],
+    ratings:          [],
+    minRating:        3.5,
+    maxRating:        5,
+    hours:            [],
+    errorMessage:     '',
+    categories:       [],
+    selectedCategory: ''
   }
 
   componentDidMount(){
@@ -28,7 +30,8 @@ class Results extends React.Component {
             const businesses =  data.businesses
                                   .filter(item => item.rating >= this.state.minRating)
                                   .sort((a, b) => a.distance - b.distance)
-            this.setState({businesses, latitude, longitude})
+            const categories = Array.from(new Set(data.businesses.map(business => business.categories).flat().map(c => c.title)))
+            this.setState({businesses, latitude, longitude, categories})
           })
           .catch(err => console.log(err.message))
       },
@@ -44,13 +47,30 @@ class Results extends React.Component {
     )
   }
 
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value })
+  }
+
   render() {
+    console.log(this.state)
     return (
       <div className="App">
         <Link to="/"><h1>Hangry</h1></Link>
+        <select onChange={this.handleChange} name="selectedCategory" value={this.state.selectedCategory}>
+          <option value="">Select a Category</option>
+          {this.state.categories.map(category => (
+            <option value={category} key={category}>{category}</option>
+          ))}
+        </select>
         <div className="Search-Bg">
           <SearchBar />
-          <BusinessList businesses={this.state.businesses}/>
+          <BusinessList businesses={this.state.businesses.filter( business => {
+            if(this.state.selectedCategory){
+              return business.categories.map(c => c.title).includes(this.state.selectedCategory)
+            }else{
+              return true
+            }
+          })}/>
           <h1>{this.state.errorMessage}</h1>
         </div>
       </div>

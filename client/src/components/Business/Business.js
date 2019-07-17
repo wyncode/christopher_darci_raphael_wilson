@@ -12,10 +12,8 @@ class Business extends React.Component {
           <img src={business.image_url} alt=''/>
         </div>
         <h2>{business.name}</h2>
-        <a href="https://www.google.com/maps?q=25.8030757,-80.206563">
-
+        <a href={`https://www.google.com/maps?q=${business.location.coordinates.latitude},${business.location.coordinates.longitude}}>
         <h4>only {business.distance.toFixed(0)} steps away</h4> </a>
-
         <div className="Business-information">
           <div className="Business-address">
             <p>{business.location.address1}</p>

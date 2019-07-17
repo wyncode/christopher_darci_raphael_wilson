@@ -10,20 +10,32 @@ class Results extends React.Component {
   state = {
     latitude:     null,
     longitude:    null,
-    businesses:  []
+    businesses:   [],
+    ratings:      [],
+    minRating:    3.5,
+    maxRating:    5,
+    hours:        [],
+    errorMessage: '',
   }
 
   componentDidMount(){
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        const { latitude, longitude } = position.coords
+        const { latitude, longitude } = position.coords;
         fetch(`/api/${latitude}/${longitude}`)
           .then(response => response.json())
           .then(data => {
-            this.setState({ businesses: data.businesses, latitude, longitude })
+            const businesses =  data.businesses
+                                  .filter(item => item.rating >= this.state.minRating)
+                                  .sort((a, b) => a.distance - b.distance),
+            this.setState({businesses, latitude, longitude})
           })
+          .catch(err => console.log(err.message))
       },
-      () => console.log("Something went wrong"),
+      (err) => {
+        console.log(`Something went wrong: ${err}`);
+        this.setState({errorMessage: `Something went wrong. ${err.message}`})
+      },
       {
         enableHighAccuracy: true,
         timeout: 5000,
@@ -37,9 +49,10 @@ class Results extends React.Component {
       <div className="App">
         <Link to="/"><h1>Hangry</h1></Link>
         <div className="Search-Bg">
-        <SearchBar />
-        <BusinessList businesses={this.state.businesses}/>
-      </div>
+          <SearchBar />
+          <BusinessList businesses={this.state.businesses}/>
+          <h1>{this.state.errorMessage}</h1>
+        </div>
       </div>
     );
   }

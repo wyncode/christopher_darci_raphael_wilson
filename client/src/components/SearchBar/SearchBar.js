@@ -7,19 +7,29 @@ const sortByOptions = {
   'Most Reviewed': 'review_count'
 };
 
-class SearchBar extends React.Component {
-  renderSortByOptions() {
-    return Object.keys(sortByOptions).map(sortByOption => {
-      let sortByOptionValue = sortByOptions[sortByOption];
-      return <li key={sortByOptionValue}>{sortByOption}</li>;
-    });
-  }
+// class SearchBar extends React.Component {
+//   renderSortByOptions() {
+//     return Object.keys(sortByOptions).map(sortByOption => {
+//       let sortByOptionValue = sortByOptions[sortByOption];
+//       return <li key={sortByOptionValue}>{sortByOption}</li>;
+//     });
+//   }
 
-  render() {
-    return (
-      <div className="SearchBar">
-
-        <div className="SearchBar-fields">
+  // render() {
+  //   return (
+      // <div className="SearchBar">
+      /* <label htmlFor="categories">Categories</label>
+      <select
+        id="categories"
+        name="categories"
+        // value={props.gender}
+        // onChange={props.handleChange}
+      >
+        <option value="all">All</option>
+        <option value="male">American</option>
+        <option value="female">Female</option>
+      </select> */}
+        {/* <div className="SearchBar-fields">
           <input placeholder="Search Businesses" />
           <input placeholder="Where?" />
         </div>
@@ -29,11 +39,11 @@ class SearchBar extends React.Component {
           </ul>
         </div>
         <div className="SearchBar-submit">
-          <a>Chow Chow</a>
-        </div>
+        </div> */}
+
       </div>
     );
   }
 }
 
-export default SearchBar;
+// export default SearchBar;

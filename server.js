@@ -7,6 +7,8 @@ const path = require("path")
 const axios = require("axios")
 const yelpKey = process.env.YELP_API_KEY
 const app = express()
+const cors = require('cors')
+app.use(cors())
 
 app.get('/api/:latitude/:longitude', (request, response) => {
   const { latitude, longitude } = request.params;

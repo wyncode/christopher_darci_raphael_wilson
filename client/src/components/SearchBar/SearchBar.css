@@ -74,10 +74,10 @@
   background-color: #a7874b;
 }
 
-@media only screen and (max-width: 560px) {
+/* @media only screen and (max-width: 560px) {
   .SearchBar {
     background-image: url('./background_search_mobile.jpg');
-  }
+  } */
 
   .SearchBar-sort-options ul {
     margin-left: 2rem;
@@ -93,4 +93,4 @@
     margin-right: 0;
     margin-bottom: .86rem;
   }
-}
+

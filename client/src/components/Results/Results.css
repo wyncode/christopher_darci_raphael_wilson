@@ -26,6 +26,7 @@ input:focus {
 
 .image-container img {
   height: 300px;
+  object-fit: cover;
 }
 
 /* App Styles */
@@ -39,7 +40,7 @@ h1 {
   padding: .66rem 0;
   text-align: center;
   background-color: #D94D1A;
-  font-family: Poppins, sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.8rem;
   color: #fff;
 }
@@ -48,10 +49,6 @@ h1 {
   background-image: url('./bamboo50.jpg');
   background-size: cover;
   background-attachment: fixed;
-  /* background-position: center; */
   background-repeat: no-repeat;
-  /* text-align: center; */
   margin: 0;
-  /* height: 86vh; */
-  /* overflow: scroll; */
 }

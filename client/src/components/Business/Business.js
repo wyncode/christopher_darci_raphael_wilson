@@ -1,17 +1,7 @@
 import React from 'react';
 import './Business.css';
 
-// const business = {
-//   imageSrc: 'https://picsum.photos/id/1080/6858/4574',
-//   name: 'Wyn Market',
-//   address: '549 NW 28th St',
-//   city: 'Wynwood',
-//   state: 'FL',
-//   zipCode: '33172',
-//   category: 'food market',
-//   rating: 4.5,
-//   reviewCount: 90
-// };
+
 
 class Business extends React.Component {
   render() {

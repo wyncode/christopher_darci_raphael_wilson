@@ -77,6 +77,7 @@
   filter: alpha(opacity=100);
   transition: 0.3s;
   transform: scale(1.1);
+  cursor: pointer;
 }
 
 .Business .image-container .img {

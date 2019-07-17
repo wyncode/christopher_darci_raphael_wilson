@@ -35,11 +35,14 @@ class Results extends React.Component {
   render() {
     return (
       <div className="App">
+
+        {/* <Link to="/"><img src="./panda_1.png"></img></Link> */}
         <Link to="/"><h1>Hangry</h1></Link>
+
         <div className="Search-Bg">
-        <SearchBar />
-        <BusinessList businesses={this.state.businesses}/>
-      </div>
+          <SearchBar />
+          <BusinessList businesses={this.state.businesses}/>
+        </div>
       </div>
     );
   }

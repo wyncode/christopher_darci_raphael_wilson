@@ -55,13 +55,16 @@ class Results extends React.Component {
     console.log(this.state)
     return (
       <div className="App">
-        <Link to="/"><h1>Hangry</h1></Link>
-        <select onChange={this.handleChange} name="selectedCategory" value={this.state.selectedCategory}>
+        <div id="secondary">
+        <Link to="/"><button id="touchup" unselectable="on">Hangry!</button></Link>
+        <br />
+        <select id="selectore" onChange={this.handleChange} name="selectedCategory" value={this.state.selectedCategory}>
           <option value="">Select a Category</option>
           {this.state.categories.map(category => (
             <option value={category} key={category}>{category}</option>
           ))}
         </select>
+        </div>
         <div className="Search-Bg">
           <SearchBar />
           <BusinessList businesses={this.state.businesses.filter( business => {

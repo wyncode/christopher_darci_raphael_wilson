@@ -15,6 +15,7 @@ class Hunger extends React.Component {
     const background = backgrounds[Math.floor(Math.random() * backgrounds.length)]
     this.setState({ background : background})
   }
+  
 
   render(){
 

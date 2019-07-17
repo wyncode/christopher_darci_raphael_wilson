@@ -2,5 +2,8 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  margin: 4rem 0;
+  /* margin: 4rem 0; */
+  padding-top: 12rem;
+  overflow: hidden;
+
 }

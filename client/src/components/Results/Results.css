@@ -59,7 +59,7 @@ input:focus {
   width: 100%;
   flex-direction: column;
   margin-bottom:100px;
-  padding-top: 100px;
+  padding-top: 165px;
   justify-content: flex-end;
   /* border-bottom: solid black .2rem; */
   
@@ -115,7 +115,7 @@ input:focus {
 
 /* Category Styles */
 
-#selectore {
+.selectore {
   display: flex;
   z-index: 2;
   opacity: .8;
@@ -129,7 +129,7 @@ input:focus {
   transition: .3s;
 }
 
-#selectore:hover {
+.selectore:hover {
   transform: scale(1.1);
   opacity: 1;
   transition: .3s;

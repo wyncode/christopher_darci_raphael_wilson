@@ -10,7 +10,7 @@ const app = express()
 
 app.get('/api/:latitude/:longitude', (request, response) => {
   const { latitude, longitude } = request.params;
-  axios.get(`https://api.yelp.com/v3/businesses/search?latitude=${latitude}&longitude=${longitude}`, {
+  axios.get(`https://api.yelp.com/v3/businesses/search?latitude=${latitude}&longitude=${longitude}&open_now=true`, {
       headers: { "Authorization" : `Bearer ${yelpKey}` }
     })
     .then(resp => response.send(resp.data))

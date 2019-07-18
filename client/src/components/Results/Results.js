@@ -11,13 +11,15 @@ class Results extends React.Component {
     latitude:         null,
     longitude:        null,
     businesses:       [],
+    sortedResults:    [],
     ratings:          [],
     minRating:        3.5,
     maxRating:        5,
-    hours:            [],
+    hours:            'hours',
     errorMessage:     '',
     categories:       [],
-    selectedCategory: ''
+    selectedCategory: '',
+    selectedPrice:    ''
   }
 
   componentDidMount(){
@@ -31,7 +33,7 @@ class Results extends React.Component {
                                   .filter(item => item.rating >= this.state.minRating)
                                   .sort((a, b) => a.distance - b.distance)
             const categories = Array.from(new Set(data.businesses.map(business => business.categories).flat().map(c => c.title)))
-            this.setState({businesses, latitude, longitude, categories})
+            this.setState({businesses, latitude, longitude, categories, sortedResults:businesses})
           })
           .catch(err => console.log(err.message))
       },
@@ -48,7 +50,21 @@ class Results extends React.Component {
   }
 
   handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value })
+    this.setState({ [event.target.name]: event.target.value, selectedPrice: '' })
+  }
+
+  handlePriceChange = (e) =>{
+    console.log(this.state.businesses)
+    let results = this.state.businesses
+    let value = e.target.value
+    results = results.filter(business => {
+      return business.price === value
+    })
+    if(!value.trim()){
+      this.setState({sortedResults:this.state.businesses, selectedPrice:value})
+    }else{
+      this.setState({sortedResults : results, selectedPrice:value})
+    }
   }
 
   render() {
@@ -58,16 +74,23 @@ class Results extends React.Component {
         <div id="secondary">
         <Link to="/"><button id="touchup" unselectable="on">Hangry!</button></Link>
         <br />
-        <select id="selectore" onChange={this.handleChange} name="selectedCategory" value={this.state.selectedCategory}>
+        <select className="selectore" onChange={this.handleChange} name="selectedCategory" value={this.state.selectedCategory}>
           <option value="">Select a Category</option>
           {this.state.categories.map(category => (
             <option value={category} key={category}>{category}</option>
           ))}
         </select>
+        <select className="selectore" onChange={this.handlePriceChange} name="selectedCategory" value={this.state.selectedPrice}>
+          <option value="">Select a Price</option>
+         <option value="$">$</option>
+         <option value="$$">$$</option>
+         <option value="$$$">$$$</option>
+         <option value="$$$$">$$$$</option>
+        </select>
         </div>
         <div className="Search-Bg">
           <SearchBar />
-          <BusinessList businesses={this.state.businesses.filter( business => {
+          <BusinessList businesses={this.state.sortedResults.filter( business => {
             if(this.state.selectedCategory){
               return business.categories.map(c => c.title).includes(this.state.selectedCategory)
             }else{
